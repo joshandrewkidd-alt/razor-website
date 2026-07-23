@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <path d="M32 4 L56 13 V33 C56 47.5 45.5 56.5 32 61 C18.5 56.5 8 47.5 8 33 V13 Z"
+        fill="#1B1E22"/>
+  <path d="M32 9 L51 16 V33 C51 45 42.5 52.5 32 56.5 C21.5 52.5 13 45 13 33 V16 Z"
+        fill="none" stroke="#1F4D3A" stroke-width="3.5"/>
+  <text x="31" y="42" font-family="Montserrat, Arial, sans-serif" font-size="30"
+        font-weight="700" fill="#F7F7F4" text-anchor="middle">R</text>
+  <path d="M20 46 L46 20" stroke="#A6D936" stroke-width="4" stroke-linecap="round"/>
+</svg>

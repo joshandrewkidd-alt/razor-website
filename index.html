@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Razor Pest Control Toowoomba | Licensed Local Pest Control &amp; Termite Specialists</title>
+  <meta name="description" content="Locally owned, licensed pest control in Toowoomba and the Darling Downs. Termites, cockroaches, ants, spiders and rodents. Upfront pricing, 12-month warranty, free quotes. Servicing homes and businesses since 2019." />
+  <meta name="theme-color" content="#1F4D3A" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://razorpestcontrol.com.au/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Razor Pest Control | Toowoomba, QLD" />
+  <meta property="og:description" content="Licensed local pest control and termite specialists. Upfront pricing, 12-month warranty, free quotes." />
+  <meta property="og:url" content="https://razorpestcontrol.com.au/" />
+  <meta property="og:image" content="assets/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PestControlService",
+    "name": "Razor Pest Control",
+    "image": "https://razorpestcontrol.com.au/assets/logo-horizontal.png",
+    "url": "https://razorpestcontrol.com.au/",
+    "telephone": "+61408763506",
+    "email": "admin@razorpestcontrol.com.au",
+    "areaServed": "Toowoomba and the Darling Downs, QLD",
+    "address": { "@type": "PostalAddress", "addressLocality": "Toowoomba", "addressRegion": "QLD", "addressCountry": "AU" },
+    "foundingDate": "2019",
+    "priceRange": "$$",
+    "slogan": "Licensed local pest control you can rely on."
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip" href="#services">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Razor Pest Control home">
+        <img src="assets/logo-horizontal.png" alt="Razor Pest Control, Toowoomba QLD" />
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#commercial">Commercial</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-cta">
+        <a class="phone-link" href="tel:+61408763506" aria-label="Call Razor Pest Control on 0408 763 506">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path d="M6.6 10.8a15.6 15.6 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.24 1z"/></svg>
+          <span>0408 763 506</span>
+        </a>
+        <a class="btn btn-primary" href="#quote">Get a quote</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="rating-badge">
+          <span aria-hidden="true">📍</span>
+          <span>Locally owned since 2019 &middot; 1,600+ jobs completed</span>
+        </div>
+        <h1>Toowoomba's local<br><span class="accent">pest control</span> team</h1>
+        <p class="lead">
+          Licensed and locally owned, and we get the job done properly. We clear out termites,
+          cockroaches, ants, spiders and rodents for homes and businesses across Toowoomba and
+          the Darling Downs, with upfront pricing and a 12-month warranty.
+        </p>
+        <ul class="trust-row">
+          <li>Licensed &amp; fully insured</li>
+          <li>Locally owned</li>
+          <li>12-month warranty</li>
+          <li>Family &amp; pet friendly</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#quote">Request a free quote</a>
+          <a class="btn btn-ghost btn-lg" href="tel:+61408763506">Call 0408 763 506</a>
+        </div>
+      </div>
+
+      <!-- Quote form card -->
+      <div class="quote-card" id="quote">
+        <div class="quote-offer">$30 off your first treatment</div>
+        <h2>Book or request a quote</h2>
+        <p class="quote-sub">Tell us where you are and what's bugging you. We'll get straight back to you.</p>
+        <form id="quote-form" novalidate>
+          <div class="field">
+            <label for="mobile">Mobile <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="mobile" name="mobile" autocomplete="tel" inputmode="tel" placeholder="04XX XXX XXX" required aria-required="true" />
+          </div>
+          <div class="field">
+            <label for="name">Name <span class="opt">(optional)</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="address">Address <span class="opt">(optional)</span></label>
+            <!-- Google Places Autocomplete attaches to #address when GOOGLE_MAPS_API_KEY is set (see script.js). -->
+            <input type="text" id="address" name="address" autocomplete="street-address" placeholder="Street, suburb" />
+            <!-- Populated by Google address validation once enabled; sent through to the app. -->
+            <input type="hidden" id="address_formatted" name="address_formatted" />
+            <input type="hidden" id="address_place_id" name="address_place_id" />
+            <input type="hidden" id="address_lat" name="address_lat" />
+            <input type="hidden" id="address_lng" name="address_lng" />
+          </div>
+          <div class="field">
+            <label for="note">Note <span class="opt">(optional)</span></label>
+            <textarea id="note" name="note" rows="3" placeholder="What pest are you dealing with? Anything that helps us quote."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="submit-btn">Send my request</button>
+          <p class="form-note">Just your mobile to start. Add the rest if you like, or we'll grab it when we call back.</p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST BAR ============ -->
+  <section class="trust-bar" aria-label="Why locals choose Razor">
+    <div class="container trust-bar-inner">
+      <div class="tb-item"><strong>Since 2019</strong><span>Locally owned &amp; operated</span></div>
+      <div class="tb-item"><strong>1,600+</strong><span>Jobs completed</span></div>
+      <div class="tb-item"><strong>650+</strong><span>Properties on protection plans</span></div>
+      <div class="tb-item"><strong>12-month</strong><span>Warranty on general pest</span></div>
+      <div class="tb-item"><strong>Licensed</strong><span>&amp; fully insured</span></div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES (interactive tiles) ============ -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What we treat</p>
+        <h2>Complete pest protection</h2>
+        <p class="section-lead">One local team for every common pest. Tap any service to see what's included and what it covers.</p>
+      </div>
+      <div class="service-grid" id="service-grid">
+        <!-- tiles injected by script.js so the modal content stays in one place -->
+      </div>
+      <p class="services-hint">Not sure what you've got? <a href="#quote">Send us a note</a> and we'll identify it for you.</p>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="pricing section" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Upfront pricing</p>
+        <h2>Honest prices, no surprises</h2>
+        <p class="section-lead">Real starting prices so you know roughly what to expect before you call. Final price depends on your property size and the pest. Your written quote is always free.</p>
+      </div>
+
+      <div class="offer-banner">
+        <div>
+          <strong>New customer offer</strong>
+          <span>$30 off your first general pest treatment. Just mention it when you book.</span>
+        </div>
+        <a class="btn btn-primary" href="#quote">Claim the offer</a>
+      </div>
+
+      <div class="price-grid">
+        <div class="price-card featured">
+          <span class="pc-tag">Most popular</span>
+          <h3>General Pest Treatment</h3>
+          <p class="price-from"><span>from</span> $150</p>
+          <p class="price-desc">Ants, cockroaches, spiders and silverfish. Inside and out, with a 12-month warranty.</p>
+          <a class="btn btn-primary btn-block" href="#quote">Get a quote</a>
+        </div>
+        <div class="price-card">
+          <h3>Units &amp; Apartments</h3>
+          <p class="price-from"><span>from</span> $130</p>
+          <p class="price-desc">A full general pest treatment sized for smaller homes, units and townhouses.</p>
+          <a class="btn btn-outline btn-block" href="#quote">Get a quote</a>
+        </div>
+        <div class="price-card">
+          <h3>Termite Inspection</h3>
+          <p class="price-from"><span>from</span> $220</p>
+          <p class="price-desc">Thorough visual inspection with a written report and photos. Protect your biggest asset.</p>
+          <a class="btn btn-outline btn-block" href="#quote">Get a quote</a>
+        </div>
+        <div class="price-card">
+          <h3>Rodent Control</h3>
+          <p class="price-from"><span>from</span> $180</p>
+          <p class="price-desc">Rats and mice. Safe, tamper-resistant baiting plus entry-point proofing.</p>
+          <a class="btn btn-outline btn-block" href="#quote">Get a quote</a>
+        </div>
+        <div class="price-card">
+          <h3>Commercial &amp; Strata</h3>
+          <p class="price-from"><span>free</span> on-site quote</p>
+          <p class="price-desc">Real estate, food, schools and body corporate. Recurring plans priced per site.</p>
+          <a class="btn btn-outline btn-block" href="#commercial">Learn more</a>
+        </div>
+      </div>
+      <p class="pricing-foot">Ask about our annual <strong>protection plans</strong>, scheduled visits that keep pests out year round. Over 650 local properties are on one, and they stay with us year after year.</p>
+    </div>
+  </section>
+
+  <!-- ============ WHY RAZOR ============ -->
+  <section class="why section" id="why">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Why Razor</p>
+        <h2>Local pros who actually turn up</h2>
+        <p class="section-lead">
+          Razor Pest Control is locally owned and operated, and we've been protecting Toowoomba
+          and Darling Downs properties since 2019. We know the local pests, the local homes and
+          the seasons that bring them out. You get a licensed technician who does the job properly
+          and explains exactly what they found, then stands behind it.
+        </p>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-ico" aria-hidden="true">🛡️</div>
+          <h3>Trustworthy</h3>
+          <p>Reliable protection for your home and business, backed by a 12-month warranty on general pest work, so you're covered well after we leave.</p>
+        </div>
+        <div class="pillar">
+          <div class="p-ico" aria-hidden="true">📍</div>
+          <h3>Local</h3>
+          <p>Based in Toowoomba and proudly independent. We're your neighbours, not a national call centre, and we know the region's conditions.</p>
+        </div>
+        <div class="pillar">
+          <div class="p-ico" aria-hidden="true">🎯</div>
+          <h3>Precise</h3>
+          <p>We track down where the pests are actually getting in, and treat that. Targeted work and clear advice, so the problem stays gone.</p>
+        </div>
+        <div class="pillar">
+          <div class="p-ico" aria-hidden="true">👨‍👩‍👧</div>
+          <h3>Family-friendly</h3>
+          <p>We use registered, low-toxicity products applied by a licensed, fully insured technician, and we'll flag any simple steps for the day, like keeping pets off a treated area until it dries.</p>
+        </div>
+      </div>
+
+      <div class="how-strip">
+        <div class="how-step"><span class="how-num">1</span><div><strong>Request a quote</strong><p>Call us or fill in the form. Tell us what you're seeing.</p></div></div>
+        <div class="how-step"><span class="how-num">2</span><div><strong>We treat it</strong><p>A licensed tech treats the problem and explains what they found.</p></div></div>
+        <div class="how-step"><span class="how-num">3</span><div><strong>Backed by warranty</strong><p>Covered for 12 months. If they come back, so do we.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMMERCIAL ============ -->
+  <section class="commercial section" id="commercial">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">For business</p>
+        <h2>Local businesses count on us too</h2>
+        <p class="section-lead">
+          Since 2019 we've looked after real estate agencies, schools, motels, cafes, clubs and
+          body corporates right across the region. We do end-of-lease jobs, set up regular service
+          plans, and give you the written pest reports and food-safety paperwork your auditors and
+          property managers actually ask for.
+        </p>
+      </div>
+      <div class="sector-grid">
+        <div class="sector"><span>🏘️</span><h3>Real estate &amp; property</h3><p>End-of-lease and routine treatments, with photographed written reports for your records.</p></div>
+        <div class="sector"><span>🏫</span><h3>Schools &amp; childcare</h3><p>After-hours service and low-tox products, on an ongoing program rather than one-off spraying.</p></div>
+        <div class="sector"><span>🏨</span><h3>Motels &amp; hospitality</h3><p>Discreet, reliable pest management that protects your guests and your reputation.</p></div>
+        <div class="sector"><span>☕</span><h3>Cafes &amp; food</h3><p>Food-safe treatments and pest registers to keep you compliant and audit-ready.</p></div>
+        <div class="sector"><span>🏢</span><h3>Body corporate &amp; strata</h3><p>Common-property programs with clear reporting and easy access coordination.</p></div>
+        <div class="sector"><span>🐄</span><h3>Rural &amp; acreage</h3><p>Rodent and pest control for sheds, farms and properties across the Downs.</p></div>
+      </div>
+      <div class="commercial-cta">
+        <a class="btn btn-primary btn-lg" href="#quote">Book a free commercial inspection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="reviews section" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Reviews</p>
+        <h2>What our customers say</h2>
+        <p class="section-lead" id="reviews-lead">Feedback from homes and businesses we've helped.</p>
+      </div>
+      <div class="reviews-controls">
+        <button type="button" class="review-pause" id="review-pause" aria-pressed="false">Pause</button>
+      </div>
+    </div>
+
+    <div class="review-viewport">
+      <div class="review-track" id="review-track" aria-label="Customer reviews" tabindex="0">
+        <!-- cards injected by script.js -->
+      </div>
+    </div>
+
+    <div class="container reviews-cta">
+      <a class="btn btn-outline" href="#quote">Get your free quote today</a>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq section" id="faq">
+    <div class="container faq-inner">
+      <div class="section-head">
+        <p class="eyebrow">Good to know</p>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="accordion" id="accordion">
+        <div class="acc-item">
+          <button class="acc-q" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">How much does a treatment cost?<span class="acc-ico" aria-hidden="true"></span></button>
+          <div class="acc-a" id="faq-a1" role="region" aria-labelledby="faq-q1" aria-hidden="true"><p>A general pest treatment for a standard home starts from $150 and covers ants, cockroaches, spiders and silverfish with a 12-month warranty. Units start from $130, termite inspections from $220. Final pricing depends on your property size and the pest, and your written quote is always free.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">Are your treatments safe for pets and kids?<span class="acc-ico" aria-hidden="true"></span></button>
+          <div class="acc-a" id="faq-a2" role="region" aria-labelledby="faq-q2" aria-hidden="true"><p>We use registered, low-toxicity products and follow the label safety directions, applied by a licensed technician. We'll let you know any simple steps for the day, like keeping pets and kids off a treated area until it's dry.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">How soon can you come out?<span class="acc-ico" aria-hidden="true"></span></button>
+          <div class="acc-a" id="faq-a3" role="region" aria-labelledby="faq-q3" aria-hidden="true"><p>We usually get to you within the same week, and sooner for urgent jobs like wasp nests or rodents. Request a quote or give us a call and we'll book a time that suits.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">Do you offer a warranty?<span class="acc-ico" aria-hidden="true"></span></button>
+          <div class="acc-a" id="faq-a4" role="region" aria-labelledby="faq-q4" aria-hidden="true"><p>General pest treatments come with a 12-month warranty: if pests return in that window, we come back and re-treat at no charge. Some pests like ants and rodents can have different terms, and we'll always explain the cover before we start.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-q" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">Which areas do you service?<span class="acc-ico" aria-hidden="true"></span></button>
+          <div class="acc-a" id="faq-a5" role="region" aria-labelledby="faq-q5" aria-hidden="true"><p>Toowoomba and right across the Darling Downs, including Highfields, Glenvale, Rangeville, Middle Ridge, Gatton, Warwick, Clifton, Allora and surrounds. Not sure if we reach you? Just ask.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICE AREA + CREDENTIALS ============ -->
+  <section class="area-strip">
+    <div class="container area-inner">
+      <div class="area-suburbs">
+        <h3>Servicing Toowoomba &amp; the Darling Downs</h3>
+        <p>Toowoomba · Highfields · Glenvale · Rangeville · Middle Ridge · Kearneys Spring · Gatton · Warwick · Clifton · Allora · Oakey · Pittsworth &amp; surrounds</p>
+      </div>
+      <ul class="credentials">
+        <li>✔ Licensed QLD Pest Management Technicians</li>
+        <li>✔ Fully insured (public liability)</li>
+        <li>✔ 12-month warranty</li>
+        <li>✔ Certificate of Currency available on request</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta">
+    <div class="container final-inner">
+      <div>
+        <h2>Ready to get rid of pests for good?</h2>
+        <p>Request a free quote online or give us a call. Same-week service across Toowoomba and the Darling Downs.</p>
+      </div>
+      <div class="final-actions">
+        <a class="btn btn-primary btn-lg" href="#quote">Request a free quote</a>
+        <a class="btn btn-ghost-light btn-lg" href="tel:+61408763506">Call 0408 763 506</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-horizontal-dark.png" alt="Razor Pest Control" />
+        <p>Locally owned and operated pest control, proudly serving Toowoomba, QLD and the Darling Downs since 2019.</p>
+        <p class="footer-abn">ABN 63 706 352 486 &nbsp;·&nbsp; Licensed &amp; insured</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+61408763506">0408 763 506</a></li>
+          <li><a href="mailto:admin@razorpestcontrol.com.au">admin@razorpestcontrol.com.au</a></li>
+          <li>Toowoomba, QLD</li>
+          <li>Mon to Sat, by appointment</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">General pest treatment</a></li>
+          <li><a href="#services">Termites &amp; inspections</a></li>
+          <li><a href="#services">Rodents &amp; spiders</a></li>
+          <li><a href="#commercial">Commercial &amp; strata</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bar">
+      <p>© <span id="year"></span> Razor Pest Control · Toowoomba, QLD</p>
+      <p class="muted">Licensed QLD Pest Management Technicians · Fully insured</p>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile call/quote bar -->
+  <div class="mobile-bar">
+    <a class="btn btn-ghost-light" href="tel:+61408763506">Call</a>
+    <a class="btn btn-primary" href="#quote">Get a quote</a>
+  </div>
+
+  <!-- Service detail modal -->
+  <div class="modal-overlay" id="service-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-head">
+        <span class="modal-ico" id="modal-ico" aria-hidden="true"></span>
+        <div>
+          <h3 id="modal-title"></h3>
+          <p class="modal-price" id="modal-price"></p>
+        </div>
+      </div>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-cols">
+        <div><h4 id="modal-cover-h">What it covers</h4><ul id="modal-cover"></ul></div>
+        <div><h4>What's included</h4><ul id="modal-included"></ul></div>
+      </div>
+      <a class="btn btn-primary btn-block btn-lg" id="modal-cta" href="#quote">Get a quote for this</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

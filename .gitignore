@@ -1,0 +1,6 @@
+# Build artifact — regenerate with the PowerShell zip step in README.md
+razor-pest-website.zip
+
+# OS junk
+.DS_Store
+Thumbs.db
