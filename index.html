@@ -4,16 +4,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Razor Pest Control Toowoomba | Licensed Local Pest Control &amp; Termite Specialists</title>
-  <meta name="description" content="Locally owned, licensed pest control in Toowoomba and the Darling Downs. Termites, cockroaches, ants, spiders and rodents. Upfront pricing, 12-month warranty, free quotes. Servicing homes and businesses since 2019." />
+  <meta name="description" content="Locally owned, licensed pest control in Toowoomba and the Darling Downs. Termites, cockroaches, ants, spiders and rodents. Upfront pricing, 12-month warranty, free quotes. Servicing homes and businesses since 2012." />
   <meta name="theme-color" content="#1F4D3A" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://razorpestcontrol.com.au/" />
 
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Razor Pest Control" />
+  <meta property="og:locale" content="en_AU" />
   <meta property="og:title" content="Razor Pest Control | Toowoomba, QLD" />
   <meta property="og:description" content="Licensed local pest control and termite specialists. Upfront pricing, 12-month warranty, free quotes." />
   <meta property="og:url" content="https://razorpestcontrol.com.au/" />
-  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:image" content="https://razorpestcontrol.com.au/assets/og-image.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Razor Pest Control | Toowoomba, QLD" />
+  <meta name="twitter:description" content="Licensed local pest control and termite specialists. Upfront pricing, 12-month warranty, free quotes." />
+  <meta name="twitter:image" content="https://razorpestcontrol.com.au/assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,10 +38,53 @@
     "telephone": "+61408763506",
     "email": "admin@razorpestcontrol.com.au",
     "areaServed": "Toowoomba and the Darling Downs, QLD",
-    "address": { "@type": "PostalAddress", "addressLocality": "Toowoomba", "addressRegion": "QLD", "addressCountry": "AU" },
-    "foundingDate": "2019",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "47 Drummond St",
+      "addressLocality": "Rangeville",
+      "addressRegion": "QLD",
+      "postalCode": "4350",
+      "addressCountry": "AU"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -27.5847, "longitude": 151.9911 },
+    "sameAs": [ "https://www.facebook.com/razorpestcontrol.com.au" ],
+    "foundingDate": "2012",
     "priceRange": "$$",
     "slogan": "Licensed local pest control you can rely on."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a treatment cost?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A general pest treatment for a standard home starts from $175 and covers ants, cockroaches, spiders and silverfish with a 12-month warranty. Units start from $155, termite inspections from $285. Final pricing depends on your property size and the pest, and your written quote is always free." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are your treatments safe for pets and kids?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We use registered, low-toxicity products and follow the label safety directions, applied by a licensed technician. We'll let you know any simple steps for the day, like keeping pets and kids off a treated area until it's dry." }
+      },
+      {
+        "@type": "Question",
+        "name": "How soon can you come out?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We usually get to you within the same week, and sooner for urgent jobs like wasp nests or rodents. Request a quote or give us a call and we'll book a time that suits." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer a warranty?",
+        "acceptedAnswer": { "@type": "Answer", "text": "General pest treatments come with a 12-month warranty: if pests return in that window, we come back and re-treat at no charge. Some pests like ants and rodents can have different terms, and we'll always explain the cover before we start." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which areas do you service?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Toowoomba and right across the Darling Downs, including Highfields, Glenvale, Rangeville, Middle Ridge, Gatton, Warwick, Clifton, Allora and surrounds. Not sure if we reach you? Just ask." }
+      }
+    ]
   }
   </script>
 </head>
@@ -71,7 +121,7 @@
       <div class="hero-copy">
         <div class="rating-badge">
           <span aria-hidden="true">📍</span>
-          <span>Locally owned since 2019 &middot; 1,600+ jobs completed</span>
+          <span>Locally owned since 2012 &middot; 1,600+ jobs completed</span>
         </div>
         <h1>Toowoomba's local<br><span class="accent">pest control</span> team</h1>
         <p class="lead">
@@ -98,29 +148,23 @@
         <p class="quote-sub">Tell us where you are and what's bugging you. We'll get straight back to you.</p>
         <form id="quote-form" novalidate>
           <div class="field">
-            <label for="mobile">Mobile <span class="req" aria-hidden="true">*</span></label>
-            <input type="tel" id="mobile" name="mobile" autocomplete="tel" inputmode="tel" placeholder="04XX XXX XXX" required aria-required="true" />
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required />
           </div>
           <div class="field">
-            <label for="name">Name <span class="opt">(optional)</span></label>
-            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" />
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" autocomplete="street-address" placeholder="Street, suburb" required />
           </div>
           <div class="field">
-            <label for="address">Address <span class="opt">(optional)</span></label>
-            <!-- Google Places Autocomplete attaches to #address when GOOGLE_MAPS_API_KEY is set (see script.js). -->
-            <input type="text" id="address" name="address" autocomplete="street-address" placeholder="Street, suburb" />
-            <!-- Populated by Google address validation once enabled; sent through to the app. -->
-            <input type="hidden" id="address_formatted" name="address_formatted" />
-            <input type="hidden" id="address_place_id" name="address_place_id" />
-            <input type="hidden" id="address_lat" name="address_lat" />
-            <input type="hidden" id="address_lng" name="address_lng" />
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" name="mobile" autocomplete="tel" inputmode="tel" placeholder="04XX XXX XXX" required />
           </div>
           <div class="field">
             <label for="note">Note <span class="opt">(optional)</span></label>
             <textarea id="note" name="note" rows="3" placeholder="What pest are you dealing with? Anything that helps us quote."></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-block btn-lg" id="submit-btn">Send my request</button>
-          <p class="form-note">Just your mobile to start. Add the rest if you like, or we'll grab it when we call back.</p>
+          <p class="form-note">No obligation. We only use your details to reply about your quote.</p>
           <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
         </form>
       </div>
@@ -130,7 +174,7 @@
   <!-- ============ TRUST BAR ============ -->
   <section class="trust-bar" aria-label="Why locals choose Razor">
     <div class="container trust-bar-inner">
-      <div class="tb-item"><strong>Since 2019</strong><span>Locally owned &amp; operated</span></div>
+      <div class="tb-item"><strong>Since 2012</strong><span>Locally owned &amp; operated</span></div>
       <div class="tb-item"><strong>1,600+</strong><span>Jobs completed</span></div>
       <div class="tb-item"><strong>650+</strong><span>Properties on protection plans</span></div>
       <div class="tb-item"><strong>12-month</strong><span>Warranty on general pest</span></div>
@@ -174,25 +218,25 @@
         <div class="price-card featured">
           <span class="pc-tag">Most popular</span>
           <h3>General Pest Treatment</h3>
-          <p class="price-from"><span>from</span> $150</p>
+          <p class="price-from"><span>from</span> $175</p>
           <p class="price-desc">Ants, cockroaches, spiders and silverfish. Inside and out, with a 12-month warranty.</p>
           <a class="btn btn-primary btn-block" href="#quote">Get a quote</a>
         </div>
         <div class="price-card">
           <h3>Units &amp; Apartments</h3>
-          <p class="price-from"><span>from</span> $130</p>
+          <p class="price-from"><span>from</span> $155</p>
           <p class="price-desc">A full general pest treatment sized for smaller homes, units and townhouses.</p>
           <a class="btn btn-outline btn-block" href="#quote">Get a quote</a>
         </div>
         <div class="price-card">
           <h3>Termite Inspection</h3>
-          <p class="price-from"><span>from</span> $220</p>
+          <p class="price-from"><span>from</span> $285</p>
           <p class="price-desc">Thorough visual inspection with a written report and photos. Protect your biggest asset.</p>
           <a class="btn btn-outline btn-block" href="#quote">Get a quote</a>
         </div>
         <div class="price-card">
           <h3>Rodent Control</h3>
-          <p class="price-from"><span>from</span> $180</p>
+          <p class="price-from"><span>from</span> $210</p>
           <p class="price-desc">Rats and mice. Safe, tamper-resistant baiting plus entry-point proofing.</p>
           <a class="btn btn-outline btn-block" href="#quote">Get a quote</a>
         </div>
@@ -215,7 +259,7 @@
         <h2>Local pros who actually turn up</h2>
         <p class="section-lead">
           Razor Pest Control is locally owned and operated, and we've been protecting Toowoomba
-          and Darling Downs properties since 2019. We know the local pests, the local homes and
+          and Darling Downs properties since 2012. We know the local pests, the local homes and
           the seasons that bring them out. You get a licensed technician who does the job properly
           and explains exactly what they found, then stands behind it.
         </p>
@@ -259,7 +303,7 @@
         <p class="eyebrow">For business</p>
         <h2>Local businesses count on us too</h2>
         <p class="section-lead">
-          Since 2019 we've looked after real estate agencies, schools, motels, cafes, clubs and
+          Since 2012 we've looked after real estate agencies, schools, motels, cafes, clubs and
           body corporates right across the region. We do end-of-lease jobs, set up regular service
           plans, and give you the written pest reports and food-safety paperwork your auditors and
           property managers actually ask for.
@@ -313,7 +357,7 @@
       <div class="accordion" id="accordion">
         <div class="acc-item">
           <button class="acc-q" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">How much does a treatment cost?<span class="acc-ico" aria-hidden="true"></span></button>
-          <div class="acc-a" id="faq-a1" role="region" aria-labelledby="faq-q1" aria-hidden="true"><p>A general pest treatment for a standard home starts from $150 and covers ants, cockroaches, spiders and silverfish with a 12-month warranty. Units start from $130, termite inspections from $220. Final pricing depends on your property size and the pest, and your written quote is always free.</p></div>
+          <div class="acc-a" id="faq-a1" role="region" aria-labelledby="faq-q1" aria-hidden="true"><p>A general pest treatment for a standard home starts from $175 and covers ants, cockroaches, spiders and silverfish with a 12-month warranty. Units start from $155, termite inspections from $285. Final pricing depends on your property size and the pest, and your written quote is always free.</p></div>
         </div>
         <div class="acc-item">
           <button class="acc-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">Are your treatments safe for pets and kids?<span class="acc-ico" aria-hidden="true"></span></button>
@@ -370,8 +414,8 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="assets/logo-horizontal-dark.png" alt="Razor Pest Control" />
-        <p>Locally owned and operated pest control, proudly serving Toowoomba, QLD and the Darling Downs since 2019.</p>
-        <p class="footer-abn">ABN 63 706 352 486 &nbsp;·&nbsp; Licensed &amp; insured</p>
+        <p>Locally owned and operated pest control, proudly serving Toowoomba, QLD and the Darling Downs since 2012.</p>
+        <p class="footer-abn">ABN 43 104 725 215 &nbsp;·&nbsp; Licensed &amp; insured</p>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
