@@ -525,3 +525,47 @@ body.modal-open { overflow: hidden; }
   .reviews-controls { display: none; } /* nothing to pause when static */
   .btn:hover, .service:hover, .sector:hover { transform: none; }
 }
+
+/* ============================================================
+   Interior pages (service / location landing pages)
+   ============================================================ */
+.breadcrumb { font-size: .82rem; }
+.breadcrumb a { color: var(--forest); }
+.breadcrumb a:hover { text-decoration: underline; }
+
+.page-hero {
+  position: relative; overflow: hidden; color: var(--white);
+  background:
+    radial-gradient(900px 460px at 12% -10%, rgba(166,217,54,.16), transparent 60%),
+    linear-gradient(155deg, var(--forest) 0%, var(--charcoal) 82%);
+  padding: 34px 0 60px;
+}
+.page-hero::after {
+  content: ""; position: absolute; inset: 0;
+  background: url("assets/shield.png") no-repeat; background-position: right -60px top 20px;
+  background-size: 380px; opacity: .05; pointer-events: none;
+}
+.page-hero .container { position: relative; z-index: 1; }
+.page-hero .breadcrumb, .page-hero .breadcrumb a { color: rgba(255,255,255,.72); }
+.page-hero .breadcrumb a:hover { color: #fff; }
+.page-hero h1 { font-size: clamp(2rem, 4.6vw, 3rem); font-weight: 800; letter-spacing: -0.02em; margin: 16px 0 0; max-width: 18em; }
+.page-hero .lead { color: rgba(255,255,255,.85); max-width: 42em; margin: 16px 0 26px; }
+
+.prose { max-width: 760px; }
+.prose > p { margin: 0 0 18px; color: #3a3f45; font-size: 1.04rem; }
+.prose h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: 36px 0 12px; }
+.prose h3 { font-size: 1.14rem; margin: 24px 0 8px; color: var(--forest); }
+.prose ul { margin: 0 0 18px; padding-left: 0; list-style: none; }
+.prose ul li { position: relative; padding-left: 26px; margin-bottom: 9px; color: #3a3f45; }
+.prose ul li::before { content: "✔"; position: absolute; left: 0; color: var(--lime-dark); font-weight: 700; }
+
+.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.value { background: var(--offwhite); border: 1px solid var(--gray); border-radius: var(--radius); padding: 22px; }
+.value .v-ico { font-size: 1.6rem; display: block; margin-bottom: 10px; }
+.value h3 { font-size: 1.05rem; color: var(--forest); margin-bottom: 6px; }
+.value p { color: var(--gray-500); font-size: .92rem; margin: 0; }
+
+.page-cta-note { text-align: center; margin: 22px auto 0; color: var(--gray-500); max-width: 40em; }
+
+@media (max-width: 900px) { .value-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .value-grid { grid-template-columns: 1fr; } }
