@@ -125,14 +125,14 @@
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="Razor Pest Control home">
-        <img src="assets/logo-horizontal.png" alt="Razor Pest Control, licensed pest control in Toowoomba QLD" width="500" height="281" fetchpriority="high" />
+        <img src="assets/logo-horizontal.png" alt="Razor Pest Control, licensed pest control in Toowoomba QLD" width="564" height="170" fetchpriority="high" />
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="/commercial-pest-control/">Commercial</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#faq">FAQ</a>
+        <a href="/reviews/">Reviews</a>
+        <a href="/about/">About</a>
       </nav>
       <div class="header-cta">
         <a class="phone-link" href="tel:+61408763506" aria-label="Call Razor Pest Control on 0408 763 506">
@@ -339,12 +339,12 @@
         </p>
       </div>
       <div class="sector-grid">
-        <div class="sector"><span>🏘️</span><h3>Real estate &amp; property</h3><p>End-of-lease and routine treatments, with photographed written reports for your records.</p></div>
-        <div class="sector"><span>🏫</span><h3>Schools &amp; childcare</h3><p>After-hours service and low-tox products, on an ongoing program rather than one-off spraying.</p></div>
-        <div class="sector"><span>🏨</span><h3>Motels &amp; hospitality</h3><p>Discreet, reliable pest management that protects your guests and your reputation.</p></div>
-        <div class="sector"><span>☕</span><h3>Cafes &amp; food</h3><p>Food-safe treatments and pest registers to keep you compliant and audit-ready.</p></div>
-        <div class="sector"><span>🏢</span><h3>Body corporate &amp; strata</h3><p>Common-property programs with clear reporting and easy access coordination.</p></div>
-        <div class="sector"><span>🐄</span><h3>Rural &amp; acreage</h3><p>Rodent and pest control for sheds, farms and properties across the Downs.</p></div>
+        <button class="sector" type="button" data-sector="real-estate" aria-haspopup="dialog"><span>🏘️</span><h3>Real estate &amp; property</h3><p>End-of-lease and routine treatments, with photographed written reports for your records.</p><span class="more">See details</span></button>
+        <button class="sector" type="button" data-sector="schools" aria-haspopup="dialog"><span>🏫</span><h3>Schools &amp; childcare</h3><p>After-hours service and low-tox products, on an ongoing program rather than one-off spraying.</p><span class="more">See details</span></button>
+        <button class="sector" type="button" data-sector="motels" aria-haspopup="dialog"><span>🏨</span><h3>Motels &amp; hospitality</h3><p>Discreet, reliable pest management that protects your guests and your reputation.</p><span class="more">See details</span></button>
+        <button class="sector" type="button" data-sector="cafes" aria-haspopup="dialog"><span>☕</span><h3>Cafes &amp; food</h3><p>Food-safe treatments and pest registers to keep you compliant and audit-ready.</p><span class="more">See details</span></button>
+        <button class="sector" type="button" data-sector="strata" aria-haspopup="dialog"><span>🏢</span><h3>Body corporate &amp; strata</h3><p>Common-property programs with clear reporting and easy access coordination.</p><span class="more">See details</span></button>
+        <button class="sector" type="button" data-sector="rural" aria-haspopup="dialog"><span>🐄</span><h3>Rural &amp; acreage</h3><p>Rodent and pest control for sheds, farms and properties across the Downs.</p><span class="more">See details</span></button>
       </div>
       <div class="commercial-cta" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
         <a class="btn btn-primary btn-lg" href="#quote">Book a free commercial inspection</a>
@@ -443,7 +443,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo-horizontal-dark.png" alt="Razor Pest Control logo" width="500" height="281" loading="lazy" decoding="async" />
+        <img src="assets/logo-horizontal-dark.png" alt="Razor Pest Control logo" width="564" height="170" loading="lazy" decoding="async" />
         <p>Locally owned and operated pest control, proudly serving Toowoomba, QLD and the Darling Downs since 2012.</p>
         <p class="footer-abn">ABN 43 104 725 215 &nbsp;·&nbsp; Licensed &amp; insured</p>
       </div>
@@ -459,11 +459,12 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">General pest treatment</a></li>
-          <li><a href="#services">Termites &amp; inspections</a></li>
-          <li><a href="#services">Rodents &amp; spiders</a></li>
+          <li><a href="/residential-pest-control/">Residential pest control</a></li>
           <li><a href="/commercial-pest-control/">Commercial &amp; strata</a></li>
-          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="/termite-inspections-toowoomba/">Termite inspections</a></li>
+          <li><a href="/termite-treatment-toowoomba/">Termite treatment</a></li>
+          <li><a href="/rodent-control/">Rodent control</a></li>
+          <li><a href="/about/">About us</a></li>
         </ul>
       </div>
     </div>
@@ -493,7 +494,7 @@
       <p class="modal-desc" id="modal-desc"></p>
       <div class="modal-cols">
         <div><h4 id="modal-cover-h">What it covers</h4><ul id="modal-cover"></ul></div>
-        <div><h4>What's included</h4><ul id="modal-included"></ul></div>
+        <div id="modal-col-2"><h4>What's included</h4><ul id="modal-included"></ul></div>
       </div>
       <a class="btn btn-primary btn-block btn-lg" id="modal-cta" href="#quote">Get a quote for this</a>
     </div>

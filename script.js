@@ -110,6 +110,9 @@ function openModal(id) {
   const s = SERVICES.find((x) => x.id === id);
   if (!s || !overlay) return;
   lastFocused = document.activeElement;
+  mPrice.style.display = "";
+  document.getElementById("modal-col-2").style.display = "";
+  document.getElementById("modal-cover-h").textContent = "What it covers";
   mIco.textContent = s.icon;
   mTitle.textContent = s.title;
   mPrice.textContent = s.price;
@@ -146,6 +149,63 @@ if (overlay) {
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
 }
+
+/* ------------------------------------------------------------
+   1b) COMMERCIAL SECTORS (homepage business tiles + detail modal, no pricing)
+------------------------------------------------------------ */
+const SECTORS = [
+  {
+    id: "real-estate", icon: "🏘️", title: "Real estate & property",
+    why: "For agencies and property managers, a pest issue can hold up a settlement, spark a bond dispute or land in your reviews. We give you fast, documented service you can rely on and drop straight into a file.",
+    jobs: ["End-of-lease and bond treatments", "Routine treatments across rental portfolios", "Pre-settlement and pre-purchase checks", "Photographed written reports for tenancy records", "Fast turnaround when a deal is on the clock"],
+  },
+  {
+    id: "schools", icon: "🏫", title: "Schools & childcare",
+    why: "Schools and childcare centres are held to a high standard, and everything has to be safe around kids. We work to a program, not a panic call, with low-tox products and the paperwork your compliance needs.",
+    jobs: ["After-hours and school-holiday treatments", "Low-toxicity, child-safe products", "Ongoing integrated pest management programs", "Rodent and cockroach control in kitchens and grounds", "Documentation for audits and compliance"],
+  },
+  {
+    id: "motels", icon: "🏨", title: "Motels & hospitality",
+    why: "In accommodation, one pest sighting can become a bad review. We keep it discreet and proactive so your guests never see the problem and your rooms stay bookable.",
+    jobs: ["Discreet scheduled room and common-area treatments", "Bed bug inspections and treatments", "Cockroach and ant control in kitchens and bars", "Rodent proofing and baiting", "Reporting for your records"],
+  },
+  {
+    id: "cafes", icon: "☕", title: "Cafes, restaurants & food",
+    why: "Food businesses live and die on their hygiene reputation and their audits. We keep pests out and keep the evidence, so a health inspection is never a worry.",
+    jobs: ["Food-safe treatments around prep and storage areas", "Cockroach and rodent control", "Pest sighting register and service reports", "HACCP-aligned documentation", "Flexible timing around service hours"],
+  },
+  {
+    id: "strata", icon: "🏢", title: "Body corporate & strata",
+    why: "Strata pest issues sit across the line between common property and individual lots, which makes them fiddly. We coordinate access, treat the common areas and report clearly back to the committee.",
+    jobs: ["Common-property treatment programs", "Coordinated access across multiple units", "Rodent, cockroach and spider control", "Clear reporting for committee meetings", "Advice on the common-property vs lot-owner split"],
+  },
+  {
+    id: "rural", icon: "🐄", title: "Rural & acreage",
+    why: "Sheds, barns and rural homes bring their own pest pressure, rodents especially. We treat larger and harder-to-reach properties right across the Downs.",
+    jobs: ["Rodent baiting and proofing for sheds and barns", "General pest treatments for rural homes", "Spider and wasp control around outbuildings", "Advice on keeping pests out of stored feed and grain", "Service across the wider Darling Downs"],
+  },
+];
+
+function openSectorModal(id) {
+  const s = SECTORS.find((x) => x.id === id);
+  if (!s || !overlay) return;
+  lastFocused = document.activeElement;
+  mIco.textContent = s.icon;
+  mTitle.textContent = s.title;
+  mPrice.textContent = "";
+  mPrice.style.display = "none";
+  mDesc.textContent = s.why;
+  document.getElementById("modal-cover-h").textContent = "What we do";
+  mCover.innerHTML = s.jobs.map((j) => `<li>${j}</li>`).join("");
+  document.getElementById("modal-col-2").style.display = "none";
+  overlay.hidden = false;
+  document.body.classList.add("modal-open");
+  mClose.focus();
+}
+
+document.querySelectorAll(".sector[data-sector]").forEach((btn) => {
+  btn.addEventListener("click", () => openSectorModal(btn.dataset.sector));
+});
 
 /* ------------------------------------------------------------
    2) QUOTE FORM
