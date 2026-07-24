@@ -14,7 +14,7 @@ const SERVICES = [
   {
     id: "general", icon: "🐜", title: "General Pest",
     tagline: "Our most popular treatment. Ants, cockroaches, spiders and silverfish in one visit.",
-    price: "from $175 · 12-month warranty",
+    price: "from $245 · 12-month warranty",
     desc: "A full interior and exterior treatment that targets the common household pests in a single visit, backed by a 12-month warranty.",
     covers: ["Ants", "Cockroaches", "Spiders", "Silverfish", "Common crawling pests"],
     included: ["Internal treatment", "External perimeter", "Eaves & web knock-down", "Entry points sealed off", "12-month warranty"],
@@ -22,7 +22,7 @@ const SERVICES = [
   {
     id: "termites", icon: "🪵", title: "Termites & Timber",
     tagline: "Inspections, barriers and treatments to protect your biggest asset.",
-    price: "inspection from $285",
+    price: "inspection from $225",
     desc: "Termites are a leading cause of structural damage to Australian homes, and most building insurance does not cover them. We inspect, report and set up the right protection for your property.",
     covers: ["Subterranean termites", "Active infestations", "Pre-purchase timber pest", "Ongoing protection"],
     included: ["Thorough visual inspection", "Written report with photos", "Treatment & barrier options", "Advice on prevention"],
@@ -30,7 +30,7 @@ const SERVICES = [
   {
     id: "cockroaches", icon: "🪳", title: "Cockroaches",
     tagline: "Gel, bait and residual treatments for lasting control.",
-    price: "from $175",
+    price: "from $245",
     desc: "Cockroaches spread bacteria through kitchens and bathrooms and breed fast. We treat the nests and the runs, not just the ones you can see.",
     covers: ["German cockroaches", "American cockroaches", "Kitchen & bathroom infestations"],
     included: ["Gel & bait application", "Residual surface spray", "Harbourage treatment", "12-month warranty on general pest"],
@@ -38,7 +38,7 @@ const SERVICES = [
   {
     id: "ants", icon: "🐜", title: "Ants",
     tagline: "Interior and perimeter treatments that stop trails at the source.",
-    price: "from $175 (general treatment)",
+    price: "from $245 (general treatment)",
     desc: "Ants are relentless in the Toowoomba summer. We treat the trails and the nests so they stop marching through your kitchen.",
     covers: ["Black ants", "Coastal brown ants", "Nuisance ant trails"],
     included: ["Interior treatment", "External perimeter barrier", "Nest treatment where found", "Prevention advice"],
@@ -46,7 +46,7 @@ const SERVICES = [
   {
     id: "spiders", icon: "🕷️", title: "Spiders",
     tagline: "Web knock-down and residual barriers around eaves and entries.",
-    price: "from $175 (general treatment)",
+    price: "from $245 (general treatment)",
     desc: "From webbing spiders around the eaves to ground-dwellers near the doors, we knock them down and set up a residual barrier.",
     covers: ["Webbing spiders", "Black house spiders", "Ground-dwelling spiders"],
     included: ["Web knock-down", "Eaves & entry treatment", "Residual barrier", "12-month warranty on general pest"],
@@ -54,7 +54,7 @@ const SERVICES = [
   {
     id: "rodents", icon: "🐀", title: "Rodents",
     tagline: "Rats and mice. Safe baiting and entry-point proofing.",
-    price: "from $210",
+    price: "from $125",
     desc: "Rats and mice chew wiring and contaminate food. We bait safely and help seal the entry points so they do not come back.",
     covers: ["Rats", "Mice", "Roof & subfloor activity"],
     included: ["Tamper-resistant bait stations", "Safe placement around pets & kids", "Entry-point proofing advice", "Follow-up options"],
@@ -70,7 +70,7 @@ const SERVICES = [
   {
     id: "inspections", icon: "🔍", title: "Inspections",
     tagline: "Pre-purchase and routine pest inspections with clear reports.",
-    price: "from $285",
+    price: "from $225",
     desc: "Buying, selling or just staying on top of it? A thorough inspection with a plain-English written report and photos.",
     covers: ["Pre-purchase inspections", "Routine pest checks", "Timber pest reports"],
     included: ["Full property inspection", "Written report with photos", "Clear findings & recommendations", "Fast turnaround"],
