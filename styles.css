@@ -289,7 +289,12 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--font-head); font-weight: 800; font-size: 1.7rem; color: var(--forest);
   margin: 6px 0 10px; line-height: 1;
 }
-.price-from span { display: block; font-size: .72rem; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: .08em; }
+.price-from span:not([data-price]) { display: block; font-size: .72rem; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: .08em; }
+/* Live-pricing hooks render inline at the full price size (never the small "from" label). */
+.price-from [data-price] { display: inline; font-size: inherit; font-weight: inherit; color: inherit; text-transform: none; letter-spacing: normal; }
+/* Header: primary 1300 landline with the mobile shown beneath it. */
+.phone-nums { display: inline-flex; flex-direction: column; line-height: 1.15; text-align: left; }
+.phone-nums small { font-size: .72rem; font-weight: 500; color: var(--gray-500); }
 .price-desc { color: var(--gray-500); font-size: .88rem; margin: 0 0 18px; flex: 1; }
 .pricing-foot { text-align: center; margin: 28px 0 0; color: var(--gray-500); }
 .pricing-foot strong { color: var(--charcoal); }

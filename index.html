@@ -138,9 +138,9 @@
         <a href="/about/">About</a>
       </nav>
       <div class="header-cta">
-        <a class="phone-link" href="tel:+61408763506" aria-label="Call Razor Pest Control on 0408 763 506">
+        <a class="phone-link" href="tel:+611300536168" aria-label="Call Razor Pest Control on 1300 536 168">
           <svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path d="M6.6 10.8a15.6 15.6 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.24 1z"/></svg>
-          <span>0408 763 506</span>
+          <span class="phone-nums">1300 536 168<small>or 0408 763 506</small></span>
         </a>
         <a class="btn btn-primary" href="#quote">Get a quote</a>
       </div>
@@ -175,7 +175,7 @@
 
       <!-- Quote form card -->
       <div class="quote-card" id="quote">
-        <div class="quote-offer">$30 off your first treatment</div>
+        <div class="quote-offer">$<span data-price="firstOff">30</span> off your first treatment</div>
         <h2>Book or request a quote</h2>
         <p class="quote-sub">Tell us where you are and what's bugging you. We'll get straight back to you.</p>
         <form id="quote-form" novalidate>
@@ -208,7 +208,6 @@
     <div class="container trust-bar-inner">
       <div class="tb-item"><strong>Since 2012</strong><span>Locally owned &amp; operated</span></div>
       <div class="tb-item"><strong>1,600+</strong><span>Jobs completed</span></div>
-      <div class="tb-item"><strong>650+</strong><span>Properties on protection plans</span></div>
       <div class="tb-item"><strong>12-month</strong><span>Warranty on general pest</span></div>
       <div class="tb-item"><strong>Licensed</strong><span>&amp; fully insured</span></div>
     </div>
@@ -241,7 +240,7 @@
       <div class="offer-banner">
         <div>
           <strong>New customer offer</strong>
-          <span>$30 off your first general pest treatment. Just mention it when you book.</span>
+          <span>$<span data-price="firstOff">30</span> off your first general pest treatment. Just mention it when you book.</span>
         </div>
         <a class="btn btn-primary" href="#quote">Claim the offer</a>
       </div>
@@ -250,25 +249,25 @@
         <div class="price-card featured">
           <span class="pc-tag">Most popular</span>
           <h3>General Pest Treatment</h3>
-          <p class="price-from"><span>from</span> $245</p>
+          <p class="price-from"><span>from</span> $<span data-price="general">245</span></p>
           <p class="price-desc">Ants, cockroaches, spiders and silverfish. Inside and out, with a 12-month warranty.</p>
           <a class="btn btn-primary btn-block" href="#quote">Get a quote</a>
         </div>
         <div class="price-card">
           <h3>Units &amp; Apartments</h3>
-          <p class="price-from"><span>from</span> $155</p>
+          <p class="price-from"><span>from</span> $<span data-price="unit">155</span></p>
           <p class="price-desc">A full general pest treatment sized for smaller homes, units and townhouses.</p>
           <a class="btn btn-outline btn-block" href="#quote">Get a quote</a>
         </div>
         <div class="price-card">
           <h3>Termite Inspection</h3>
-          <p class="price-from"><span>from</span> $225</p>
+          <p class="price-from"><span>from</span> $<span data-price="termiteInspection">225</span></p>
           <p class="price-desc">Thorough visual inspection with a written report and photos. Protect your biggest asset.</p>
           <a class="btn btn-outline btn-block" href="#quote">Get a quote</a>
         </div>
         <div class="price-card">
           <h3>Rodent Control</h3>
-          <p class="price-from"><span>from</span> $125</p>
+          <p class="price-from"><span>from</span> $<span data-price="rodent">125</span></p>
           <p class="price-desc">Rats and mice. Safe, tamper-resistant baiting plus entry-point proofing.</p>
           <a class="btn btn-outline btn-block" href="#quote">Get a quote</a>
         </div>
@@ -279,7 +278,7 @@
           <a class="btn btn-outline btn-block" href="/commercial-pest-control/">Learn more</a>
         </div>
       </div>
-      <p class="pricing-foot">Ask about our annual <strong>protection plans</strong>, scheduled visits that keep pests out year round. Over 650 local properties are on one, and they stay with us year after year.</p>
+      <p class="pricing-foot">Ask about our annual <strong>protection plans</strong>, scheduled visits that keep pests out year round — homes and businesses that stay protected year after year.</p>
     </div>
   </section>
 
@@ -390,7 +389,7 @@
       <div class="accordion" id="accordion">
         <div class="acc-item">
           <button class="acc-q" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">How much does a treatment cost?<span class="acc-ico" aria-hidden="true"></span></button>
-          <div class="acc-a" id="faq-a1" role="region" aria-labelledby="faq-q1" aria-hidden="true"><p>A general pest treatment for a standard home starts from $245 and covers ants, cockroaches, spiders and silverfish with a 12-month warranty. Units start from $155, termite inspections from $225. Final pricing depends on your property size and the pest, and your written quote is always free.</p></div>
+          <div class="acc-a" id="faq-a1" role="region" aria-labelledby="faq-q1" aria-hidden="true"><p>A general pest treatment for a standard home starts from $<span data-price="general">245</span> and covers ants, cockroaches, spiders and silverfish with a 12-month warranty. Units start from $<span data-price="unit">155</span>, termite inspections from $<span data-price="termiteInspection">225</span>. Final pricing depends on your property size and the pest, and your written quote is always free.</p></div>
         </div>
         <div class="acc-item">
           <button class="acc-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">Are your treatments safe for pets and kids?<span class="acc-ico" aria-hidden="true"></span></button>

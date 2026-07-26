@@ -8,13 +8,55 @@
    ============================================================ */
 
 /* ------------------------------------------------------------
+   0) LIVE PRICING
+   Prices are managed in the app's "Website Editor" and served from
+   /site/pricing.json. We fill every element tagged data-price="key"
+   plus the service pop-up prices from it, falling back to the
+   defaults below if the API can't be reached.
+------------------------------------------------------------ */
+const API_BASE = "https://razor-pest-control-app.onrender.com";
+const PRICING = { general: 245, unit: 155, termiteInspection: 225, rodent: 125, wasp: 215, firstOff: 30 };
+
+function fillPriceHooks() {
+  document.querySelectorAll("[data-price]").forEach((el) => {
+    const key = el.dataset.price;
+    if (key && key in PRICING) el.textContent = PRICING[key];
+  });
+}
+
+async function loadPricing() {
+  fillPriceHooks(); // show defaults immediately
+  try {
+    const res = await fetch(API_BASE + "/site/pricing.json", { cache: "no-store" });
+    if (!res.ok) return;
+    const data = await res.json();
+    Object.keys(PRICING).forEach((k) => { if (typeof data[k] === "number") PRICING[k] = data[k]; });
+    fillPriceHooks();
+  } catch (e) { /* keep the defaults above */ }
+}
+loadPricing();
+
+/** Record a website lead in the app's "Website Enquiries" tab (best-effort; the email is the fallback). */
+function postEnquiryToApp(data) {
+  const message = [data.note, data.address ? "Address: " + data.address : null]
+    .filter(Boolean).join("\n") || null;
+  fetch(API_BASE + "/enquiries", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: data.name, phone: data.mobile || null, message: message, source: "Website" }),
+  }).catch(() => { /* the Web3Forms email still notifies us */ });
+}
+
+/* ------------------------------------------------------------
    1) SERVICES  (tiles + modal share this one source)
+   `price` is a function of the live PRICING so the pop-ups stay in
+   sync with the Website Editor.
 ------------------------------------------------------------ */
 const SERVICES = [
   {
     id: "general", icon: "🐜", title: "General Pest",
     tagline: "Our most popular treatment. Ants, cockroaches, spiders and silverfish in one visit.",
-    price: "from $245 · 12-month warranty",
+    price: (p) => `from $${p.general} · 12-month warranty`,
     desc: "A full interior and exterior treatment that targets the common household pests in a single visit, backed by a 12-month warranty.",
     covers: ["Ants", "Cockroaches", "Spiders", "Silverfish", "Common crawling pests"],
     included: ["Internal treatment", "External perimeter", "Eaves & web knock-down", "Entry points sealed off", "12-month warranty"],
@@ -22,7 +64,7 @@ const SERVICES = [
   {
     id: "termites", icon: "🪵", title: "Termites & Timber",
     tagline: "Inspections, barriers and treatments to protect your biggest asset.",
-    price: "inspection from $225",
+    price: (p) => `inspection from $${p.termiteInspection}`,
     desc: "Termites are a leading cause of structural damage to Australian homes, and most building insurance does not cover them. We inspect, report and set up the right protection for your property.",
     covers: ["Subterranean termites", "Active infestations", "Pre-purchase timber pest", "Ongoing protection"],
     included: ["Thorough visual inspection", "Written report with photos", "Treatment & barrier options", "Advice on prevention"],
@@ -30,7 +72,7 @@ const SERVICES = [
   {
     id: "cockroaches", icon: "🪳", title: "Cockroaches",
     tagline: "Gel, bait and residual treatments for lasting control.",
-    price: "from $245",
+    price: (p) => `from $${p.general}`,
     desc: "Cockroaches spread bacteria through kitchens and bathrooms and breed fast. We treat the nests and the runs, not just the ones you can see.",
     covers: ["German cockroaches", "American cockroaches", "Kitchen & bathroom infestations"],
     included: ["Gel & bait application", "Residual surface spray", "Harbourage treatment", "12-month warranty on general pest"],
@@ -38,7 +80,7 @@ const SERVICES = [
   {
     id: "ants", icon: "🐜", title: "Ants",
     tagline: "Interior and perimeter treatments that stop trails at the source.",
-    price: "from $245 (general treatment)",
+    price: (p) => `from $${p.general} (general treatment)`,
     desc: "Ants are relentless in the Toowoomba summer. We treat the trails and the nests so they stop marching through your kitchen.",
     covers: ["Black ants", "Coastal brown ants", "Nuisance ant trails"],
     included: ["Interior treatment", "External perimeter barrier", "Nest treatment where found", "Prevention advice"],
@@ -46,7 +88,7 @@ const SERVICES = [
   {
     id: "spiders", icon: "🕷️", title: "Spiders",
     tagline: "Web knock-down and residual barriers around eaves and entries.",
-    price: "from $245 (general treatment)",
+    price: (p) => `from $${p.general} (general treatment)`,
     desc: "From webbing spiders around the eaves to ground-dwellers near the doors, we knock them down and set up a residual barrier.",
     covers: ["Webbing spiders", "Black house spiders", "Ground-dwelling spiders"],
     included: ["Web knock-down", "Eaves & entry treatment", "Residual barrier", "12-month warranty on general pest"],
@@ -54,7 +96,7 @@ const SERVICES = [
   {
     id: "rodents", icon: "🐀", title: "Rodents",
     tagline: "Rats and mice. Safe baiting and entry-point proofing.",
-    price: "from $125",
+    price: (p) => `from $${p.rodent}`,
     desc: "Rats and mice chew wiring and contaminate food. We bait safely and help seal the entry points so they do not come back.",
     covers: ["Rats", "Mice", "Roof & subfloor activity"],
     included: ["Tamper-resistant bait stations", "Safe placement around pets & kids", "Entry-point proofing advice", "Follow-up options"],
@@ -62,7 +104,7 @@ const SERVICES = [
   {
     id: "wasps", icon: "🐝", title: "Wasps & Bees",
     tagline: "Fast, safe nest removal and treatment.",
-    price: "from $215",
+    price: (p) => `from $${p.wasp}`,
     desc: "Wasp and bee nests near doors, play areas or eaves are a real risk. We remove and treat them quickly and safely.",
     covers: ["Paper wasps", "European wasps", "Bee swarms & nests"],
     included: ["Nest location & treatment", "Safe removal", "Advice to prevent return", "Priority for urgent jobs"],
@@ -70,7 +112,7 @@ const SERVICES = [
   {
     id: "inspections", icon: "🔍", title: "Inspections",
     tagline: "Pre-purchase and routine pest inspections with clear reports.",
-    price: "from $225",
+    price: (p) => `from $${p.termiteInspection}`,
     desc: "Buying, selling or just staying on top of it? A thorough inspection with a plain-English written report and photos.",
     covers: ["Pre-purchase inspections", "Routine pest checks", "Timber pest reports"],
     included: ["Full property inspection", "Written report with photos", "Clear findings & recommendations", "Fast turnaround"],
@@ -115,7 +157,7 @@ function openModal(id) {
   document.getElementById("modal-cover-h").textContent = "What it covers";
   mIco.textContent = s.icon;
   mTitle.textContent = s.title;
-  mPrice.textContent = s.price;
+  mPrice.textContent = typeof s.price === "function" ? s.price(PRICING) : s.price;
   mDesc.textContent = s.desc;
   mCover.innerHTML = s.covers.map((c) => `<li>${c}</li>`).join("");
   mIncluded.innerHTML = s.included.map((c) => `<li>${c}</li>`).join("");
@@ -292,6 +334,9 @@ if (form) {
     submitBtn.disabled = true;
     const original = submitBtn.textContent;
     submitBtn.textContent = "Sending…";
+
+    // Land the lead in the app regardless of the email path below.
+    postEnquiryToApp(data);
 
     try {
       if (WEB3FORMS_KEY) {

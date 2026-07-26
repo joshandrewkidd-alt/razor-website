@@ -1,4 +1,40 @@
 /* Shared behaviour for interior (service / location) pages: FAQ accordion + footer year. */
+
+/* Live pricing — filled from the app's Website Editor via /site/pricing.json.
+   Every element tagged data-price="key" is updated; defaults below are the fallback. */
+const API_BASE = "https://razor-pest-control-app.onrender.com";
+const PRICING = { general: 245, unit: 155, termiteInspection: 225, rodent: 125, wasp: 215, firstOff: 30 };
+
+function fillPriceHooks() {
+  document.querySelectorAll("[data-price]").forEach((el) => {
+    const key = el.dataset.price;
+    if (key && key in PRICING) el.textContent = PRICING[key];
+  });
+}
+
+async function loadPricing() {
+  fillPriceHooks();
+  try {
+    const res = await fetch(API_BASE + "/site/pricing.json", { cache: "no-store" });
+    if (!res.ok) return;
+    const data = await res.json();
+    Object.keys(PRICING).forEach((k) => { if (typeof data[k] === "number") PRICING[k] = data[k]; });
+    fillPriceHooks();
+  } catch (e) { /* keep the defaults above */ }
+}
+loadPricing();
+
+/** Record a website lead in the app's "Website Enquiries" tab (best-effort; the email is the fallback). */
+function postEnquiryToApp(data) {
+  const message = [data.note, data.address ? "Address: " + data.address : null]
+    .filter(Boolean).join("\n") || null;
+  fetch(API_BASE + "/enquiries", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: data.name, phone: data.mobile || null, message: message, source: "Website" }),
+  }).catch(() => { /* the Web3Forms email still notifies us */ });
+}
+
 document.querySelectorAll(".acc-item").forEach((item) => {
   const q = item.querySelector(".acc-q");
   const a = item.querySelector(".acc-a");
@@ -44,6 +80,7 @@ if (qForm) {
     if (!validate()) { setStatus("Please check the highlighted fields.", "bad"); return; }
     const data = { name: qForm.name.value.trim(), address: qForm.address.value.trim(), mobile: qForm.mobile.value.trim(), note: qForm.note.value.trim() };
     submitBtn.disabled = true; const original = submitBtn.textContent; submitBtn.textContent = "Sending…";
+    postEnquiryToApp(data); // land the lead in the app regardless of the email path
     try {
       if (WEB3FORMS_KEY) {
         const res = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
