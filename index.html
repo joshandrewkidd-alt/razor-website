@@ -24,7 +24,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
 
   <link rel="stylesheet" href="styles.css" />
 
@@ -122,7 +123,7 @@
 </head>
 <body>
 
-  <a class="skip" href="#services">Skip to content</a>
+  <a class="skip" href="#main">Skip to content</a>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="top">
@@ -146,6 +147,8 @@
       </div>
     </div>
   </header>
+
+  <main id="main">
 
   <!-- ============ HERO ============ -->
   <section class="hero">
@@ -275,7 +278,7 @@
           <h3>Commercial &amp; Strata</h3>
           <p class="price-from"><span>free</span> on-site quote</p>
           <p class="price-desc">Real estate, food, schools and body corporate. Recurring plans priced per site.</p>
-          <a class="btn btn-outline btn-block" href="/commercial-pest-control/">Learn more</a>
+          <a class="btn btn-outline btn-block" href="/commercial-pest-control/">See commercial services</a>
         </div>
       </div>
       <p class="pricing-foot">Ask about our annual <strong>protection plans</strong>, scheduled visits that keep pests out year round — homes and businesses that stay protected year after year.</p>
@@ -442,6 +445,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="container footer-grid">
@@ -451,7 +456,7 @@
         <p class="footer-abn">ABN 43 104 725 215 &nbsp;&middot;&nbsp; PMT 1003984313 &nbsp;&middot;&nbsp; QBCC 15343231</p>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <ul>
           <li><a href="tel:+61408763506">0408 763 506</a></li>
           <li><a href="mailto:admin@razorpestcontrol.com.au">admin@razorpestcontrol.com.au</a></li>
@@ -460,7 +465,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Services</h4>
+        <h3>Services</h3>
         <ul>
           <li><a href="/residential-pest-control/">Residential pest control</a></li>
           <li><a href="/commercial-pest-control/">Commercial &amp; strata</a></li>
