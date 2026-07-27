@@ -7,13 +7,26 @@
   <meta name="description" content="Rat and mouse control in Toowoomba from $125. Safe, tamper-resistant baiting and entry-point proofing by a licensed technician. Book online." />
   <meta name="theme-color" content="#1F4D3A" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18346114707"></script>
+  <!-- Google tag (gtag.js) - deferred to first interaction to keep it off the critical load path -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'AW-18346114707');
+    (function () {
+      var loaded = false;
+      function loadGtag() {
+        if (loaded) return; loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18346114707';
+        document.head.appendChild(s);
+      }
+      ['pointerdown','keydown','touchstart','scroll'].forEach(function (evt) {
+        window.addEventListener(evt, loadGtag, { once: true, passive: true });
+      });
+      setTimeout(loadGtag, 4000);
+    })();
   </script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://razorpestcontrol.com.au/rodent-control/" />
