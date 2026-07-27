@@ -5,6 +5,19 @@
    Type:  Montserrat (headings) · Inter (body)
    ============================================================ */
 
+/* Fallback fonts sized to match the web fonts, so text does not reflow when
+   Montserrat / Inter finish loading (reduces Cumulative Layout Shift). */
+@font-face {
+  font-family: "Montserrat Fallback";
+  src: local("Arial");
+  ascent-override: 85.75%; descent-override: 22.23%; line-gap-override: 0%; size-adjust: 112.46%;
+}
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial");
+  ascent-override: 90.49%; descent-override: 22.56%; line-gap-override: 0%; size-adjust: 107.12%;
+}
+
 :root {
   --charcoal: #1B1E22;
   --forest:   #1F4D3A;
@@ -24,8 +37,8 @@
   --ease: cubic-bezier(.2, .7, .2, 1);
   --header-h: 72px;
 
-  --font-head: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-head: "Montserrat", "Montserrat Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }

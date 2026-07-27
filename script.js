@@ -354,6 +354,7 @@ if (form) {
         if (!res.ok || !json.success) throw new Error(json.message || "Submission failed");
         setStatus("Thanks " + data.name.split(" ")[0] + "! Your request is in. We'll be in touch shortly.", "ok");
         form.reset();
+        if (typeof gtag === "function") gtag("event", "conversion", { send_to: "AW-18346114707/7e-cCJGvkNccEJP9jaxE" });
       } else {
         const body = `Name: ${data.name}\nAddress: ${data.address}\nMobile: ${data.mobile}\nNote: ${data.note || "(none)"}\n`;
         window.location.href =
