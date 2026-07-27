@@ -74,7 +74,7 @@ const SERVICES = [
     tagline: "Gel, bait and residual treatments for lasting control.",
     price: (p) => `from $${p.general}`,
     desc: "Cockroaches spread bacteria through kitchens and bathrooms and breed fast. We treat the nests and the runs, not just the ones you can see.",
-    covers: ["German cockroaches", "American cockroaches", "Kitchen & bathroom infestations"],
+    covers: ["American cockroaches", "Drain & subfloor cockroaches", "Kitchen & bathroom infestations"],
     included: ["Gel & bait application", "Residual surface spray", "Harbourage treatment", "12-month warranty on general pest"],
   },
   {
