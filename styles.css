@@ -5,8 +5,26 @@
    Type:  Montserrat (headings) · Inter (body)
    ============================================================ */
 
-/* Fallback fonts sized to match the web fonts, so text does not reflow when
-   Montserrat / Inter finish loading (reduces Cumulative Layout Shift). */
+/* Self-hosted variable fonts (latin subset) — served from our own origin and
+   preloaded in the page head, so they are on hand at first paint. No third-party
+   (Google Fonts) request on the critical path. One file covers every weight. */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/assets/fonts/montserrat-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/assets/fonts/inter-latin.woff2") format("woff2");
+}
+
+/* Metric-matched fallbacks — bridge the brief moment before the web fonts load
+   so text does not reflow (reduces Cumulative Layout Shift). */
 @font-face {
   font-family: "Montserrat Fallback";
   src: local("Arial");
