@@ -424,11 +424,47 @@ function reviewCard(r) {
   return el;
 }
 
+// Reviews the office has published from the app (served from /site/reviews.json), mapped to the
+// card shape. Returns [] on any failure so the hardcoded REVIEWS above stay as the fallback.
+const REVIEW_COLORS = ["#1F4D3A", "#A6D936", "#1B1E22", "#2f6b4f", "#8dbf22"];
+// reviewCard() builds via innerHTML, so escape the (customer-authored) Google text to avoid injection.
+function escReview(s) {
+  return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+}
+async function loadWebsiteReviews() {
+  try {
+    const res = await fetch(API_BASE + "/site/reviews.json", { cache: "no-store" });
+    if (!res.ok) return [];
+    const data = await res.json();
+    if (!Array.isArray(data)) return [];
+    return data
+      .filter((r) => r && r.author && String(r.text || "").trim())
+      .map((r, i) => ({
+        name: escReview(r.author),
+        date: escReview(r.when || "Google review"),
+        stars: Math.max(1, Math.min(5, Number(r.rating) || 5)),
+        color: REVIEW_COLORS[i % REVIEW_COLORS.length],
+        text: escReview(r.text),
+      }));
+  } catch (e) { return []; }
+}
+
 const track = document.getElementById("review-track");
 if (track) {
-  const cards = REVIEWS.map(reviewCard);
-  cards.forEach((c) => track.appendChild(c));
-  cards.forEach((c) => track.appendChild(c.cloneNode(true))); // duplicate for seamless loop
+  function buildTrack(list) {
+    track.innerHTML = "";
+    const cards = list.map(reviewCard);
+    cards.forEach((c) => track.appendChild(c));
+    cards.forEach((c) => track.appendChild(c.cloneNode(true))); // duplicate for seamless loop
+  }
+  buildTrack(REVIEWS); // show the fallback set immediately
+
+  // Merge in app-published reviews (deduped by name, published first), then rebuild the track.
+  loadWebsiteReviews().then((live) => {
+    if (!live.length) return;
+    const seen = new Set(live.map((r) => r.name.toLowerCase()));
+    buildTrack(live.concat(REVIEWS.filter((r) => !seen.has(r.name.toLowerCase()))));
+  });
 
   // honest labelling of the section when using sample data
   const lead = document.getElementById("reviews-lead");

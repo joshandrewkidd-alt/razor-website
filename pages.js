@@ -24,6 +24,49 @@ async function loadPricing() {
 }
 loadPricing();
 
+/* Reviews page: merge app-published Google reviews (from /site/reviews.json) above the hardcoded
+   fallback cards, deduped by name. Only runs on a page that has a .review-grid. Text is inserted via
+   textContent (never innerHTML) so customer-authored review text can't inject markup. */
+(function () {
+  const grid = document.querySelector(".review-grid");
+  if (!grid) return;
+  const COLORS = ["#1F4D3A", "#A6D936", "#1B1E22", "#2f6b4f", "#8dbf22"];
+  const stars = (n) => "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n);
+  const existing = new Set(
+    Array.from(grid.querySelectorAll(".rc-name")).map((el) => el.textContent.trim().toLowerCase())
+  );
+  fetch(API_BASE + "/site/reviews.json", { cache: "no-store" })
+    .then((r) => (r.ok ? r.json() : []))
+    .then((data) => {
+      if (!Array.isArray(data)) return;
+      const fresh = data.filter(
+        (r) => r && r.author && String(r.text || "").trim() &&
+          !existing.has(String(r.author).trim().toLowerCase())
+      );
+      if (!fresh.length) return;
+      const frag = document.createDocumentFragment();
+      fresh.forEach((r, i) => {
+        const n = Math.max(1, Math.min(5, Number(r.rating) || 5));
+        const card = document.createElement("article");
+        card.className = "review-card";
+        card.innerHTML =
+          '<div class="rc-head"><div class="rc-avatar"></div>' +
+          '<div class="rc-meta"><div class="rc-name"></div><div class="rc-date"></div></div></div>' +
+          '<div class="rc-stars" aria-label="' + n + ' out of 5 stars">' + stars(n) + "</div>" +
+          '<p class="rc-body"></p><div class="rc-foot">Customer review</div>';
+        const avatar = card.querySelector(".rc-avatar");
+        avatar.style.background = COLORS[i % COLORS.length];
+        avatar.textContent = String(r.author).charAt(0).toUpperCase();
+        card.querySelector(".rc-name").textContent = String(r.author);
+        card.querySelector(".rc-date").textContent = r.when ? String(r.when) : "Google review";
+        card.querySelector(".rc-body").textContent = String(r.text);
+        frag.appendChild(card);
+      });
+      grid.insertBefore(frag, grid.firstChild); // published reviews first, fallbacks after
+    })
+    .catch(() => { /* keep the hardcoded fallback cards */ });
+})();
+
 /** Record a website lead in the app's "Website Enquiries" tab (best-effort; the email is the fallback). */
 function postEnquiryToApp(data) {
   const message = [data.note, data.address ? "Address: " + data.address : null]
