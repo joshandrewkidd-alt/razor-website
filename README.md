@@ -1,21 +1,26 @@
 # razorpestcontrol.com.au — marketing site
 
-A single-page, **static** marketing site for Razor Pest Control. No build step, no
-framework — just `index.html`, `styles.css`, `script.js` and the brand assets.
+A **static, multi-page** marketing site for Razor Pest Control. No build step, no
+framework — plain HTML/CSS/JS you can edit directly.
 
 ```
 website/
-├─ index.html      # the page
-├─ styles.css      # all styling (brand colours + responsive)
-├─ script.js       # form handling + reviews + year
-├─ favicon.svg     # shield mark favicon
-├─ assets/         # logos (from /logo and branding) + og image
-└─ README.md
+├─ index.html                        # homepage (the "pest control Toowoomba" page)
+├─ 404.html                          # branded not-found page (needs ErrorDocument, see DEPLOY)
+├─ styles.css                        # all styling (brand colours + responsive + interior pages)
+├─ script.js                         # HOMEPAGE ONLY: tiles/modals, reviews marquee, form, pricing
+├─ pages.js                          # INTERIOR PAGES ONLY: accordion, form, pricing, reviews merge
+├─ favicon.svg                       # shield mark favicon
+├─ sitemap.xml / robots.txt          # SEO
+├─ google658067926d573c8c.html       # Google Search Console verification — do not delete
+├─ assets/                           # optimised logos, og-image.jpg, apple-touch-icon, fonts/
+└─ <slug>/index.html                 # 11 interior pages:
+   about, ant-control, cockroach-control, commercial-pest-control, quote,
+   residential-pest-control, reviews, rodent-control, spider-control,
+   termite-inspections-toowoomba, termite-treatment-toowoomba
 ```
 
 ## Preview locally
-
-Open `index.html` directly, or serve the folder:
 
 ```bash
 cd website
@@ -23,62 +28,41 @@ python -m http.server 8080
 # → http://localhost:8080
 ```
 
-## Pre-launch checklist (do these before going live)
+(Serve it — don't open `index.html` directly — because interior pages use root-relative
+paths like `/styles.css`.)
 
-**1. Wire up the quote form.**
-Only **Mobile** is required, so partly-filled quotes still come through (you capture the lead and
-chase the rest on callback). Requests are sent in priority order (all set at the top of `script.js`):
-- `QUOTE_ENDPOINT` — **the hook into the Razor app.** Set it to the app's API URL and quote
-  requests POST straight in as JSON (fields: `mobile, name, address, note`, the structured
-  `address_*` fields, plus `source`, `partial`, `submitted_at`).
-- `WEB3FORMS_KEY` — fallback free no-backend email ([web3forms.com](https://web3forms.com), enter
-  **admin@razorpestcontrol.com.au**).
-- Neither set → opens the visitor's own email app pre-addressed to you.
+## How things work (current, live behaviour)
 
-**1b. Google address validation (optional, ready to switch on).**
-The Address field is wired for Google Places Autocomplete. Add `GOOGLE_MAPS_API_KEY` at the top of
-`script.js` and as-you-type address validation turns on, filling the hidden `address_formatted /
-place_id / lat / lng` fields that flow through to the app. Left blank, Address is a plain text field.
+- **Quote form** (homepage + `/quote/`): **name + address + mobile all required**.
+  Submits via **Web3Forms** (key already set in both JS files) to
+  admin@razorpestcontrol.com.au, with a mailto fallback, and also POSTs the lead
+  (best-effort) to the Razor app at `API_BASE /enquiries` so it lands in the app's
+  Website Enquiries tab. A Google Ads conversion fires once on success.
+- **Prices**: baked-in fallbacks live in the `PRICING` object in **both** `script.js` and
+  `pages.js` — general **$245**, units **$155**, termite inspection **$225**, rodent
+  **$125**, wasp **$215**, plus the **$30** first-treatment offer. On load, the site
+  fetches live overrides from the app (`API_BASE /site/pricing.json`) and fills every
+  `data-price="key"` element. **When a price changes:** update it in the app's Website
+  Editor (instant, site-wide) and keep the two `PRICING` fallbacks + any hardcoded
+  numbers in page meta descriptions/JSON-LD in sync.
+- **Reviews**: 5 real Google reviews are hardcoded (`REVIEWS_ARE_REAL = true`), merged
+  with any extra reviews the office publishes from the app (`/site/reviews.json`).
+- **Fonts**: Montserrat + Inter are **self-hosted** in `assets/fonts/` and preloaded.
+  Don't add Google Fonts tags back.
+- **Google tag** (`AW-18346114707`) loads standard/async on page view on every page —
+  needed for Google Ads verification and conversion attribution. Don't defer it.
 
-**2. Turn on live Google reviews.**
-Reviews auto-pull from Google. Set **both** at the top of `script.js`:
-`GOOGLE_MAPS_API_KEY` and `GOOGLE_PLACE_ID`. The section then fills with your real Google
-reviews + star rating, refreshed on every visit. **Until both are set, the reviews section
-hides itself entirely** (nothing fake or sample-looking ever goes live).
+## Business facts baked in (keep consistent everywhere)
 
-- **Place ID:** find yours at https://developers.google.com/maps/documentation/places/web-service/place-id (search your business).
-- **API key:** in [Google Cloud Console](https://console.cloud.google.com) create a project, enable
-  the **Places API**, make an **API key**, and restrict it to HTTP referrer
-  `razorpestcontrol.com.au/*`. (Google's API returns your 5 most-relevant reviews.)
-- The same key powers the address validation in step 1b.
-- `SHOW_SAMPLE_REVIEWS = true` in `script.js` only previews the layout locally; leave it `false`.
-
-Prefer a no-Google-Cloud option that syncs *all* your reviews? A widget like **Featurable**
-(free) or **Elfsight** connects to your Google Business Profile, at the cost of a third-party
-script. Ask Josh to swap it in if you'd rather that.
-
-**3. ABN — done.** Footer shows the real ABN `63 706 352 486`.
-
-**4. Confirm the prices and the offer.** The "from" prices ($150 / $130 / $220 / $180 / $195)
-and the "$30 off your first treatment" offer are sensible defaults based on your own past jobs
-plus the local market. Confirm every "from" price is genuinely available and the offer will be
-honoured, then adjust any figure you want to change (in `index.html` pricing cards + the FAQ,
-and the per-service prices in `script.js`).
-
-**5. Add your licence number (optional but recommended).** The site states "Licensed QLD Pest
-Management Technicians"; add your actual PMT licence number near the credentials block for extra
-trust. Only claim memberships (AEPMA, HACCP, etc.) you actually hold.
+- **Razor Pest Control**, 47 Drummond St, Rangeville QLD 4350 · since **2012**
+- **1300 536 168** / **0408 763 506** · admin@razorpestcontrol.com.au
+- **ABN 43 104 725 215 · PMT 1003984313 · QBCC 15343231**
+- Hours: **Mon–Sat 9am–5pm**, Sunday closed
+- Brand: Charcoal `#1B1E22` · Forest `#1F4D3A` · Lime `#A6D936` · Montserrat + Inter
+- Copy stays ACCC-safe: no "guaranteed", "100% safe" or forever-style claims.
 
 ## Deploy
 
-It's plain static files — host anywhere:
-
-- **Cloudflare Pages / Netlify / SWA** — point at this `website/` folder, no build command.
-- **Any web host** — upload the folder contents to the site root.
-
-Then point `razorpestcontrol.com.au` DNS at the host.
-
-## Details baked in
-- Business: **Razor Pest Control**, Toowoomba QLD · **0408 763 506** · admin@razorpestcontrol.com.au
-- Brand: Charcoal `#1B1E22` · Forest Green `#1F4D3A` · Lime `#A6D936` · Montserrat + Inter
-- SEO: title/description, Open Graph tags, `PestControlService` structured data, canonical URL.
+See **DEPLOY-crazy-domains.md**. Short version: rebuild `razor-pest-website.zip`, upload
+to cPanel, extract into `public_html`. The zip is a **snapshot** — regenerate it after
+every source edit.

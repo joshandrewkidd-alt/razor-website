@@ -22,7 +22,7 @@ async function loadPricing() {
     fillPriceHooks();
   } catch (e) { /* keep the defaults above */ }
 }
-loadPricing();
+if (document.querySelector("[data-price]")) loadPricing(); // skip the fetch on pages with no price hooks
 
 /* Reviews page: merge app-published Google reviews (from /site/reviews.json) above the hardcoded
    fallback cards, deduped by name. Only runs on a page that has a .review-grid. Text is inserted via
@@ -52,7 +52,7 @@ loadPricing();
         card.innerHTML =
           '<div class="rc-head"><div class="rc-avatar"></div>' +
           '<div class="rc-meta"><div class="rc-name"></div><div class="rc-date"></div></div></div>' +
-          '<div class="rc-stars" aria-label="' + n + ' out of 5 stars">' + stars(n) + "</div>" +
+          '<div class="rc-stars" role="img" aria-label="' + n + ' out of 5 stars">' + stars(n) + "</div>" +
           '<p class="rc-body"></p><div class="rc-foot">Customer review</div>';
         const avatar = card.querySelector(".rc-avatar");
         avatar.style.background = COLORS[i % COLORS.length];
@@ -62,7 +62,7 @@ loadPricing();
         card.querySelector(".rc-body").textContent = String(r.text);
         frag.appendChild(card);
       });
-      grid.insertBefore(frag, grid.firstChild); // published reviews first, fallbacks after
+      grid.appendChild(frag); // appended below the static cards so nothing already painted shifts (CLS)
     })
     .catch(() => { /* keep the hardcoded fallback cards */ });
 })();
@@ -100,7 +100,7 @@ const qForm = document.getElementById("quote-form");
 if (qForm) {
   const statusEl = document.getElementById("form-status");
   const submitBtn = document.getElementById("submit-btn");
-  const setStatus = (msg, kind) => { statusEl.hidden = false; statusEl.textContent = msg; statusEl.className = "form-status " + (kind || ""); };
+  const setStatus = (msg, kind) => { statusEl.textContent = msg; statusEl.className = "form-status " + (kind || ""); };
   const mark = (input, ok) => {
     const field = input.closest(".field"); if (!field) return;
     field.classList.toggle("invalid", !ok);

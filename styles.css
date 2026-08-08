@@ -237,7 +237,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--offwhite); transition: border-color .15s, box-shadow .15s, background .15s;
 }
 .field textarea { resize: vertical; min-height: 76px; }
-.field input::placeholder, .field textarea::placeholder { color: #9aa0a6; }
+.field input::placeholder, .field textarea::placeholder { color: var(--gray-500); }
 .field input:focus, .field textarea:focus {
   outline: none; border-color: var(--forest); background: var(--white);
   box-shadow: 0 0 0 4px rgba(31,77,58,.12);
@@ -251,6 +251,7 @@ a { color: inherit; text-decoration: none; }
 }
 .form-status.ok { background: #eaf7db; color: #33560f; border: 1px solid #c7e79a; }
 .form-status.bad { background: #fdecec; color: #a12626; border: 1px solid #f3c0c0; }
+.form-status:empty { padding: 0; margin: 0; border: 0; } /* live region stays in the a11y tree from load, invisible while empty */
 
 /* ---------- Trust bar ---------- */
 .trust-bar { background: var(--charcoal); color: var(--white); }
@@ -266,7 +267,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- Services ---------- */
 .services { background: var(--white); }
-.service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; min-height: 430px; } /* reserve the JS-injected tiles (reduces CLS, like .review-viewport); measured 441px at 4 cols */
 .service {
   text-align: left; font-family: inherit; cursor: pointer;
   background: var(--offwhite); border: 1px solid var(--gray);
@@ -382,13 +383,14 @@ a { color: inherit; text-decoration: none; }
 }
 .review-pause:hover { border-color: var(--forest); color: var(--forest); }
 .review-pause:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; }
-.review-viewport { overflow: hidden; min-height: 262px; }  /* reserve the reviews strip (reduces CLS from JS-injected cards) */
+.review-viewport { overflow: hidden; min-height: 450px; }  /* reserve the reviews strip (reduces CLS from JS-injected cards) */
 .review-track {
   display: flex; gap: 20px; width: max-content;
   padding: 8px 22px 22px;
   animation: marquee 52s linear infinite;
 }
 .review-track:hover, .review-track:focus-within, .review-track:focus { animation-play-state: paused; }
+.review-track.is-paused { animation-play-state: paused; }
 .review-track:focus-visible { outline: 2px solid var(--forest); outline-offset: -2px; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .review-card {
@@ -406,7 +408,7 @@ a { color: inherit; text-decoration: none; }
 .rc-meta { flex: 1; min-width: 0; }
 .rc-name { font-family: var(--font-head); font-weight: 600; font-size: .98rem; }
 .rc-date { color: var(--gray-500); font-size: .8rem; }
-.rc-stars { color: #fbbc05; letter-spacing: 1px; font-size: 1rem; }
+.rc-stars { color: #9a7b00; letter-spacing: 1px; font-size: 1rem; }
 .rc-body { color: #3a3f45; font-size: .95rem; margin: 0; }
 .rc-foot { display: flex; align-items: center; gap: 7px; color: var(--gray-500); font-size: .8rem; margin-top: auto; }
 .reviews-cta { text-align: center; margin-top: 14px; }
@@ -519,7 +521,7 @@ body.modal-open { overflow: hidden; }
    ============================================================ */
 @media (max-width: 980px) {
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .service-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-grid { grid-template-columns: repeat(2, 1fr); min-height: 820px; } /* measured 833px at 980px */
   .price-grid { grid-template-columns: repeat(2, 1fr); }
   .pillars { grid-template-columns: repeat(2, 1fr); }
   .sector-grid { grid-template-columns: repeat(2, 1fr); }
@@ -533,6 +535,7 @@ body.modal-open { overflow: hidden; }
   .btn { white-space: normal; max-width: 100%; text-align: center; }
   .nav { display: none; }
   .header-cta .phone-link span { display: none; }
+  .header-cta .phone-link { min-width: 44px; } /* keep a 44px tap target when only the icon shows */
   .section { padding: 58px 0; }
   .hero { padding: 44px 0 66px; }
   .trust-bar-inner { gap: 20px 10px; }
@@ -545,7 +548,7 @@ body.modal-open { overflow: hidden; }
 }
 
 @media (max-width: 480px) {
-  .service-grid { grid-template-columns: 1fr; }
+  .service-grid { grid-template-columns: 1fr; min-height: 1600px; } /* measured 1633px at 480px */
   .price-grid { grid-template-columns: 1fr; }
   .pillars { grid-template-columns: 1fr; }
   .sector-grid { grid-template-columns: 1fr; }

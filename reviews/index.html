@@ -16,6 +16,7 @@
     gtag('config', 'AW-18346114707');
   </script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="canonical" href="https://razorpestcontrol.com.au/reviews/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Razor Pest Control" />
@@ -41,7 +42,7 @@
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a class="brand" href="/" aria-label="Razor Pest Control home">
-        <img src="/assets/logo-horizontal.png" alt="Razor Pest Control, Toowoomba QLD" width="564" height="170" />
+        <img src="/assets/logo-horizontal.png" alt="Razor Pest Control, Toowoomba QLD" width="564" height="170" fetchpriority="high" />
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="/#services">Services</a>
@@ -59,6 +60,7 @@
       </div>
     </div>
   </header>
+  <main id="main">
   <section class="page-hero">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <span>Reviews</span></nav>
@@ -75,7 +77,6 @@
       </div>
     </div>
   </section>
-  <main id="main">
     <section class="section" style="background:var(--white)">
       <div class="container">
         <div class="section-head"><p class="eyebrow">Reviews</p><h2>Trusted by locals across the Downs</h2>
@@ -83,38 +84,37 @@
         <div class="review-grid">
           <article class="review-card">
             <div class="rc-head"><div class="rc-avatar" style="background:#1F4D3A">J</div><div class="rc-meta"><div class="rc-name">Juliet Laila</div><div class="rc-date">Google review</div></div></div>
-            <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="rc-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="rc-body">Trevor was lovely to speak to and answered all my questions about pest control and termite treatments. I spoke to him a month before my house settlement and he even dropped by the property to do a check as well. I contacted him again when I got the date of settlement and he was able to organise the treatment to be completed within such short notice. Thank you for the wonderful service!</p>
             <div class="rc-foot">Customer review</div>
           </article>
           <article class="review-card">
             <div class="rc-head"><div class="rc-avatar" style="background:#A6D936">T</div><div class="rc-meta"><div class="rc-name">Tim Adair</div><div class="rc-date">Google review</div></div></div>
-            <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="rc-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="rc-body">Fantastic service. Needed a last minute job done for end of lease. Trevor is very polite, punctual and professional. Highly recommend.</p>
             <div class="rc-foot">Customer review</div>
           </article>
           <article class="review-card">
             <div class="rc-head"><div class="rc-avatar" style="background:#1B1E22">K</div><div class="rc-meta"><div class="rc-name">Kara Gordon</div><div class="rc-date">Google review</div></div></div>
-            <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="rc-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="rc-body">had razors come to get rid of the fleas and im very pleased with them and will definitely use them in the future i would highly recommend if you are after someone affordable and who takes care of their customers as he likes to do a follow through after aswell</p>
             <div class="rc-foot">Customer review</div>
           </article>
           <article class="review-card">
             <div class="rc-head"><div class="rc-avatar" style="background:#2f6b4f">M</div><div class="rc-meta"><div class="rc-name">Maria Gane</div><div class="rc-date">Google review</div></div></div>
-            <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="rc-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="rc-body">Stellar service, polite, knowledgeable, prompt and thorough. I recommend Razor Pest Control for any pest concerns.</p>
             <div class="rc-foot">Customer review</div>
           </article>
           <article class="review-card">
             <div class="rc-head"><div class="rc-avatar" style="background:#8dbf22">A</div><div class="rc-meta"><div class="rc-name">Angel Sims</div><div class="rc-date">Google review</div></div></div>
-            <div class="rc-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="rc-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="rc-body">Communicated easily, great response time, showed up exactly on appointment time and spray tech was very lovely.</p>
             <div class="rc-foot">Customer review</div>
           </article>
         </div>
       </div>
     </section>
-  </main>
   <section class="final-cta">
     <div class="container final-inner">
       <div><h2>Join our happy customers</h2><p>Get a free, no-obligation quote for your home or business.</p></div>
@@ -124,6 +124,7 @@
       </div>
     </div>
   </section>
+  </main>
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
@@ -144,6 +145,9 @@
         <h3>Services</h3>
         <ul>
           <li><a href="/residential-pest-control/">Residential pest control</a></li>
+          <li><a href="/ant-control/">Ant control</a></li>
+          <li><a href="/cockroach-control/">Cockroach control</a></li>
+          <li><a href="/spider-control/">Spider control</a></li>
           <li><a href="/commercial-pest-control/">Commercial &amp; strata</a></li>
           <li><a href="/termite-inspections-toowoomba/">Termite inspections</a></li>
           <li><a href="/termite-treatment-toowoomba/">Termite treatment</a></li>
@@ -159,7 +163,7 @@
   </footer>
 
   <div class="mobile-bar">
-    <a class="btn btn-ghost-light" href="tel:+61408763506">Call</a>
+    <a class="btn btn-ghost-light" href="tel:+61408763506" aria-label="Call Razor Pest Control on 0408 763 506">Call</a>
     <a class="btn btn-primary" href="/quote/">Get a quote</a>
   </div>
 

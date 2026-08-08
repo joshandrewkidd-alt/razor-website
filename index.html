@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pest Control Toowoomba | Termite Inspections | Razor Pest Control</title>
-  <meta name="description" content="Locally owned, licensed pest control in Toowoomba and the Darling Downs. Termites, cockroaches, ants, spiders and rodents. Upfront pricing, 12-month warranty, free quotes. Servicing homes and businesses since 2012." />
+  <meta name="description" content="Locally owned, licensed pest control in Toowoomba. Termites, cockroaches, ants, spiders and rodents. Upfront pricing, 12-month warranty, free quotes." />
   <meta name="theme-color" content="#1F4D3A" />
 
   <!-- Google tag (gtag.js) -->
@@ -16,19 +16,20 @@
     gtag('config', 'AW-18346114707');
   </script>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="canonical" href="https://razorpestcontrol.com.au/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Razor Pest Control" />
   <meta property="og:locale" content="en_AU" />
   <meta property="og:title" content="Razor Pest Control | Toowoomba, QLD" />
-  <meta property="og:description" content="Licensed local pest control and termite specialists. Upfront pricing, 12-month warranty, free quotes." />
+  <meta property="og:description" content="Locally owned, licensed pest control in Toowoomba. Termites, cockroaches, ants, spiders and rodents. Upfront pricing, 12-month warranty, free quotes." />
   <meta property="og:url" content="https://razorpestcontrol.com.au/" />
   <meta property="og:image" content="https://razorpestcontrol.com.au/assets/og-image.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Razor Pest Control | Toowoomba, QLD" />
-  <meta name="twitter:description" content="Licensed local pest control and termite specialists. Upfront pricing, 12-month warranty, free quotes." />
+  <meta name="twitter:description" content="Locally owned, licensed pest control in Toowoomba. Termites, cockroaches, ants, spiders and rodents. Upfront pricing, 12-month warranty, free quotes." />
   <meta name="twitter:image" content="https://razorpestcontrol.com.au/assets/og-image.jpg" />
 
   <link rel="preconnect" href="https://razor-pest-control-app.onrender.com" crossorigin />
@@ -47,6 +48,7 @@
     "logo": "https://razorpestcontrol.com.au/assets/logo-horizontal.png",
     "url": "https://razorpestcontrol.com.au/",
     "telephone": "+61408763506",
+    "contactPoint": [{"@type": "ContactPoint", "telephone": "+611300536168", "contactType": "customer service", "areaServed": "AU"}],
     "email": "admin@razorpestcontrol.com.au",
     "priceRange": "$$",
     "currenciesAccepted": "AUD",
@@ -207,8 +209,8 @@
             <textarea id="note" name="note" rows="3" placeholder="What pest are you dealing with? Anything that helps us quote."></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-block btn-lg" id="submit-btn">Send my request</button>
-          <p class="form-note">No obligation. We only use your details to reply about your quote.</p>
-          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+          <p class="form-note">No obligation. We only use your details to reply about your quote. Phones are answered Mon to Sat, 9am to 5pm. After hours, send the form and we'll call you back.</p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
@@ -375,12 +377,12 @@
         <p class="section-lead" id="reviews-lead">Feedback from homes and businesses we've helped.</p>
       </div>
       <div class="reviews-controls">
-        <button type="button" class="review-pause" id="review-pause" aria-pressed="false">Pause</button>
+        <button type="button" class="review-pause" id="review-pause">Pause</button>
       </div>
     </div>
 
     <div class="review-viewport">
-      <div class="review-track" id="review-track" aria-label="Customer reviews" tabindex="0">
+      <div class="review-track" id="review-track" role="group" aria-label="Customer reviews" tabindex="0">
         <!-- cards injected by script.js -->
       </div>
     </div>
@@ -443,7 +445,7 @@
   <section class="final-cta">
     <div class="container final-inner">
       <div>
-        <h2>Ready to get rid of pests for good?</h2>
+        <h2>Ready to get rid of pests?</h2>
         <p>Request a free quote online or give us a call. Same-week service across Toowoomba and the Darling Downs.</p>
       </div>
       <div class="final-actions">
@@ -476,6 +478,9 @@
         <h3>Services</h3>
         <ul>
           <li><a href="/residential-pest-control/">Residential pest control</a></li>
+          <li><a href="/ant-control/">Ant control</a></li>
+          <li><a href="/cockroach-control/">Cockroach control</a></li>
+          <li><a href="/spider-control/">Spider control</a></li>
           <li><a href="/commercial-pest-control/">Commercial &amp; strata</a></li>
           <li><a href="/termite-inspections-toowoomba/">Termite inspections</a></li>
           <li><a href="/termite-treatment-toowoomba/">Termite treatment</a></li>
@@ -492,7 +497,7 @@
 
   <!-- Sticky mobile call/quote bar -->
   <div class="mobile-bar">
-    <a class="btn btn-ghost-light" href="tel:+61408763506">Call</a>
+    <a class="btn btn-ghost-light" href="tel:+61408763506" aria-label="Call Razor Pest Control on 0408 763 506">Call</a>
     <a class="btn btn-primary" href="#quote">Get a quote</a>
   </div>
 

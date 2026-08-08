@@ -267,7 +267,6 @@ const statusEl = document.getElementById("form-status");
 const submitBtn = document.getElementById("submit-btn");
 
 function setStatus(msg, kind) {
-  statusEl.hidden = false;
   statusEl.textContent = msg;
   statusEl.className = "form-status " + (kind || "");
 }
@@ -417,7 +416,7 @@ function reviewCard(r) {
       </div>
       ${brand}
     </div>
-    <div class="rc-stars" aria-label="${r.stars} out of 5 stars">${starRow(r.stars)}</div>
+    <div class="rc-stars" role="img" aria-label="${r.stars} out of 5 stars">${starRow(r.stars)}</div>
     <p class="rc-body">${r.text}</p>
     <div class="rc-foot">${foot}</div>
   `;
@@ -455,7 +454,7 @@ if (track) {
     track.innerHTML = "";
     const cards = list.map(reviewCard);
     cards.forEach((c) => track.appendChild(c));
-    cards.forEach((c) => track.appendChild(c.cloneNode(true))); // duplicate for seamless loop
+    cards.forEach((c) => { const d = c.cloneNode(true); d.setAttribute("aria-hidden", "true"); track.appendChild(d); }); // duplicate for seamless loop (hidden from screen readers)
   }
   buildTrack(REVIEWS); // show the fallback set immediately
 
@@ -480,10 +479,8 @@ if (track) {
   const pauseBtn = document.getElementById("review-pause");
   if (pauseBtn) {
     pauseBtn.addEventListener("click", () => {
-      const paused = track.style.animationPlayState === "paused";
-      track.style.animationPlayState = paused ? "running" : "paused";
-      pauseBtn.textContent = paused ? "Pause" : "Play";
-      pauseBtn.setAttribute("aria-pressed", paused ? "false" : "true");
+      const paused = track.classList.toggle("is-paused"); // class, not inline style, so hover/focus pause keeps working
+      pauseBtn.textContent = paused ? "Play" : "Pause";
     });
   }
 }
